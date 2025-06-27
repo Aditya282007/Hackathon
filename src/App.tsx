@@ -21,7 +21,7 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading HealthVoice...</p>
+          <p className="text-gray-600">Loading VaaniMed...</p>
         </div>
       </div>
     );
@@ -88,7 +88,7 @@ function App() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-          Welcome to <span className="text-blue-600">HealthVoice</span>
+          Welcome to <span className="text-blue-600">VaaniMed</span>
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
           Your intelligent healthcare companion powered by voice technology. 
@@ -130,12 +130,6 @@ function App() {
           onClick={() => setCurrentPage('appointments')}
         />
         <FeatureCard
-          icon={<Heart className="w-8 h-8" />}
-          title="Health Insights"
-          description="Get personalized health recommendations and insights"
-          onClick={() => {}}
-        />
-        <FeatureCard
           icon={<User className="w-8 h-8" />}
           title="Personal Health Record"
           description="Maintain your complete health history in one place"
@@ -158,7 +152,7 @@ function App() {
   }) => (
     <div 
       onClick={onClick}
-      className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-blue-200"
+      className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-blue-700"
     >
       <div className="text-blue-600 mb-4">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
@@ -178,7 +172,7 @@ function App() {
                 className="flex items-center space-x-2 text-xl font-bold text-blue-600"
               >
                 <Heart className="w-8 h-8" />
-                <span className="hidden sm:block">HealthVoice</span>
+                <span className="hidden sm:block">VaaniMed</span>
               </button>
             </div>
 

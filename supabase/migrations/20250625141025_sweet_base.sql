@@ -1,5 +1,5 @@
 /*
-  # Create core database schema for HealthVoice application
+  # Create core database schema for VaaniMed application
 
   1. New Tables
     - `profiles` - User profile information with role-based access
