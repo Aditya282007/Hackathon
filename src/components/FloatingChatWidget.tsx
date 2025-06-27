@@ -107,7 +107,7 @@ const MiniTriageChat: React.FC = () => {
       sender: 'user' as const,
       timestamp: new Date(),
     };
-
+z
     setMessages(prev => [...prev, userMessage]);
     setInputText('');
     setIsTyping(true);

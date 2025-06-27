@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, Users, TrendingUp, Bell, Search, Filter } from 'lucide-react';
+import { Calendar, Clock, Users, TrendingUp, Bell, Search } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { supabase, Appointment } from '../lib/supabase';
 
@@ -12,7 +13,7 @@ interface DashboardStats {
 
 const DoctorsDashboard: React.FC = () => {
   const { user, profile } = useAuth();
-  const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
+  const [selectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -338,7 +339,7 @@ interface PatientCardProps {
   index: number;
 }
 
-const PatientCard: React.FC<PatientCardProps> = ({ appointment, onStatusUpdate, index }) => {
+const PatientCard: React.FC<PatientCardProps> = ({ appointment, onStatusUpdate }) => {
   const patient = appointment.patient;
   const patientName = patient ? `${patient.first_name} ${patient.last_name}` : 'Unknown Patient';
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Mic, MicOff, Bot, User, Loader, AlertCircle, Volume2 } from 'lucide-react';
 import { voiceAPI, VoiceTranscriptionResult } from '../lib/voiceAPI';

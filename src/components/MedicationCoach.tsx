@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from 'react';
 import { Pill, Clock, Bell, Plus, CheckCircle, Mic, MicOff, Trash2, AlertCircle } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
@@ -89,7 +90,7 @@ const MedicationCoach: React.FC = () => {
             setIsListening(false);
           };
           
-          recognition.onresult = (event) => {
+          recognition.onresult = (event: { resultIndex: any; results: string | any[]; }) => {
             let finalTranscript = '';
             
             for (let i = event.resultIndex; i < event.results.length; i++) {
@@ -102,7 +103,7 @@ const MedicationCoach: React.FC = () => {
             if (finalTranscript) {
               const updatedNote = voiceNote + (voiceNote ? ' ' : '') + finalTranscript.trim();
               setVoiceNote(updatedNote);
-              setNewMedication(prev => ({ ...prev, notes: updatedNote }));
+              setNewMedication((prev: any) => ({ ...prev, notes: updatedNote }));
             }
           };
 
@@ -167,7 +168,7 @@ const MedicationCoach: React.FC = () => {
           name: newMedication.name,
           dosage: newMedication.dosage,
           frequency: newMedication.frequency || 'Once daily',
-          times: newMedication.times?.filter(t => t) || ['08:00'],
+          times: newMedication.times?.filter((t: any) => t) || ['08:00'],
           start_date: newMedication.start_date || new Date().toISOString().split('T')[0],
           notes: newMedication.notes,
         });

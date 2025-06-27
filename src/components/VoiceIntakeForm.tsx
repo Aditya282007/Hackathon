@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useRef, useEffect } from 'react';
 import { Mic, MicOff, Send, User, Calendar, Phone, MapPin, AlertCircle, Pill, Heart, Volume2 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';

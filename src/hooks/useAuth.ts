@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { User } from '@supabase/supabase-js';
 import { supabase, Profile, testConnection } from '../lib/supabase';

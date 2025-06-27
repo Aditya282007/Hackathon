@@ -3,7 +3,6 @@ import { Heart, Menu, X, User, Calendar, FileText, Stethoscope, Pill, LogOut } f
 import { useAuth } from './hooks/useAuth';
 import { AuthModal } from './components/AuthModal';
 import { VoiceIntakeForm } from './components/VoiceIntakeForm';
-import { TriageChatbot } from './components/TriageChatbot';
 import { AppointmentScheduler } from './components/AppointmentScheduler';
 import MedicationCoach from './components/MedicationCoach';
 import DoctorsDashboard from './components/DoctorsDashboard';
