@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Menu, X, User, Calendar, FileText, Stethoscope, Pill, LogOut } from 'lucide-react';
 import { useAuth } from './hooks/useAuth';
 import { AuthModal } from './components/AuthModal';
-import { VoiceIntakeForm } from './components/VoiceIntakeForm';
+import VoiceIntakeForm from './components/VoiceIntakeForm';
 import { AppointmentScheduler } from './components/AppointmentScheduler';
 import MedicationCoach from './components/MedicationCoach';
 import DoctorsDashboard from './components/DoctorsDashboard';

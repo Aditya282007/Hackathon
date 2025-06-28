@@ -93,38 +93,56 @@ const MiniTriageChat: React.FC = () => {
     "Need medication help"
   ];
 
-  const handleSendMessage = (text: string) => {
-    if (!text.trim()) return;
+  const handleSendMessage = async (text: string) => {
+  if (!text.trim()) return;
 
-    // Stop listening if currently active
-    if (isListening) {
-      stopListening();
-    }
+  if (isListening) await stopListening();
 
-    const userMessage = {
-      id: Date.now().toString(),
-      text,
-      sender: 'user' as const,
+  const userMessage = {
+    id: Date.now().toString(),
+    text,
+    sender: 'user' as const,
+    timestamp: new Date(),
+  };
+
+  setMessages((prev) => [...prev, userMessage]);
+  setInputText('');
+  setIsTyping(true);
+  setSpeechError(null);
+
+  try {
+    const res = await fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text }),
+    });
+
+    const data = await res.json();
+
+    const botMessage = {
+      id: (Date.now() + 1).toString(),
+      text: data.response || 'Sorry, I did not understand that.',
+      sender: 'bot' as const,
       timestamp: new Date(),
     };
-z
-    setMessages(prev => [...prev, userMessage]);
-    setInputText('');
-    setIsTyping(true);
-    setSpeechError(null);
 
-    // Simulate AI response
-    setTimeout(() => {
-      const botResponse = {
+    setMessages((prev) => [...prev, botMessage]);
+  } catch (err) {
+    console.error('Failed to get AI response:', err);
+    setMessages((prev) => [
+      ...prev,
+      {
         id: (Date.now() + 1).toString(),
-        text: generateQuickResponse(text),
+        text: 'Error: Unable to reach AI model.',
         sender: 'bot' as const,
         timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, botResponse]);
-      setIsTyping(false);
-    }, 1500);
-  };
+      },
+    ]);
+  } finally {
+    setIsTyping(false);
+  }
+};
+
 
   const generateQuickResponse = (input: string): string => {
     const responses = [
